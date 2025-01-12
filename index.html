@@ -27,7 +27,17 @@
         class="form"
         method="post"
       >
-        <input type="hidden" name="formId" id="formId" />
+  
+      <div class="div_inp">
+
+        <label for="name"><i class="fa-solid fa-user-tie"></i>اسم السائق</label>
+
+        <select id="name" name="Agent Name" class="input name_ag_inp  name_Agent1" required>
+            <option value="" disabled selected>اسم السائق</option>
+        </select>
+
+    </div>
+
 
         <div class="div_inp">
           <label for="car"
@@ -61,13 +71,14 @@
 
 
         <div class="div_inp">
-          <label for="way"><i class="fa-solid fa-road"></i> خط سير الاورد</label>
+          <label for="way"><i class="fa-solid fa-road"></i>خط سير الاوردر</label>
           <input
             id="way"
             class="input way"
             type="text"
             name="خط سير الاوردر"
             placeholder="خط سير الاوردر"
+            required
           />
           
         </div>
@@ -81,6 +92,7 @@
             type="number"
             name="مصاريف البنزين"
             placeholder="مصاريف البنزين"
+            required
           />
           
         </div>
@@ -95,6 +107,7 @@
             type="number"
             name="مصاريف الكارتات"
             placeholder="مصاريف الكارتات"
+            required
           />
           
         </div>
@@ -110,6 +123,7 @@
             type="text"
             name="وقت الانتظار"
             placeholder="وقت الانتظار"
+            required
           />
           
         </div>
@@ -126,6 +140,7 @@
             type="number"
             name="التحصيل"
             placeholder="التحصيل"
+            required
           />
           
         </div>
@@ -141,31 +156,49 @@
           >
             <option value="" disabled selected>اسم المكتب</option>
          
-            <option value="بيتر روؤف">بيتر روؤف</option>
-            <option value="رافت">رافت</option>
-            <option value="وديع">وديع</option>
-            <option value="شادى">شادى</option>
-            <option value="ماريان">ماريان</option>
-            <option value="مايكل فايز">مايكل فايز</option>
-            <option value="مايكل فايز">غير ذلك ( يدوي )</option>
+            <option value="بيتر روؤف Pr">بيتر روؤف</option>
+            <option value="رافت Pr">رافت</option>
+            <option value="وديع Pr">وديع</option>
+            <option value="شادى Pr">شادى</option>
+            <option value="ماريان Pr">ماريان</option>
+            <option value="مايكل فايز Pr">مايكل فايز</option>
+            <option value="غير ذلك">غير ذلك ( يدوي )</option>
           </select>
           
         </div>
 
+        <div id="more_desk">
 
+        </div>
 
-<!-- 
-        <div class="div_inp">
-          <label for="way"><i class="fa-solid fa-lock"></i>    </label>
-          <input
-            id="way"
-            class="input way"
-            type="number"
-            name=""
-            placeholder=""
-          />
-          
-        </div> -->
+        <script>
+          const deskSelect = document.getElementById("desk");
+          const moreDeskDiv = document.getElementById("more_desk");
+        
+          deskSelect.addEventListener("change", function () {
+         
+            if (this.value === "غير ذلك") {
+
+              if (!document.getElementById("customDeskInput")) {
+                const input = document.createElement("input");
+                input.type = "text";
+                input.id = "customDeskInput";
+                input.name = "customDesk";
+                input.className = "input mb-20";
+                input.placeholder = "أدخل اسم المكتب";
+                input.required = true; 
+                moreDeskDiv.appendChild(input);
+              }
+            } else {
+      
+              const existingInput = document.getElementById("customDeskInput");
+              if (existingInput) {
+                moreDeskDiv.removeChild(existingInput);
+              }
+            }
+          });
+        </script>
+
 
 
         <div class="show_sec_for_all">
@@ -188,7 +221,7 @@
       
             
             <div class="div_inp">
-              <label for="way"><i class="fa-solid fa-road"></i> خط سير الاورد</label>
+              <label for="way"><i class="fa-solid fa-road"></i> خط سير الاوردر</label>
               <input
                 id="Recipient"
                 class="input way"
@@ -230,7 +263,7 @@
       
             
             <div class="div_inp">
-              <label for="way"><i class="fa-solid fa-road"></i> خط سير الاورد</label>
+              <label for="way"><i class="fa-solid fa-road"></i> خط سير الاوردر</label>
               <input
                 id="Recipient2"
                 class="input way"
@@ -272,7 +305,7 @@
        
             
             <div class="div_inp">
-              <label for="way"><i class="fa-solid fa-road"></i> خط سير الاورد</label>
+              <label for="way"><i class="fa-solid fa-road"></i> خط سير الاوردر</label>
               <input
                 id="Recipient3"
                 class="input way"
@@ -313,7 +346,7 @@
           
             
             <div class="div_inp">
-              <label for="Recipient4"><i class="fa-solid fa-road"></i> خط سير الاورد</label>
+              <label for="Recipient4"><i class="fa-solid fa-road"></i> خط سير الاوردر</label>
               <input
                 id="Recipient4"
                 class="input way"
@@ -344,6 +377,7 @@
             id="Password"
             class="input password_inp"
             placeholder="ادخل الباسورد "
+            required
           />
         </div>
 

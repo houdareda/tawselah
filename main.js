@@ -1,4 +1,5 @@
 // ---- Get today and yesterday for inp Date ----
+let Data_Agent = false;
 
 var password_agent = false;
 
@@ -65,6 +66,46 @@ dateInput.addEventListener("change", function () {
 
 
 
+// input Agent Name Add to Local Storge
+
+document.addEventListener("DOMContentLoaded", function () {
+  const selectElement = document.getElementById("name");
+
+  const storedAgentName = localStorage.getItem("agentName");
+  if (storedAgentName) {
+    selectElement.value = storedAgentName;
+    add_phone_number(storedAgentName);
+  }
+
+  selectElement.addEventListener("change", function () {
+    const selectedAgentName = selectElement.value;
+
+    if (selectedAgentName) {
+      localStorage.setItem("agentName", selectedAgentName);
+      add_phone_number(selectedAgentName);
+    }
+  });
+
+  fetch("data.json")
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((agent) => {
+        Data_Agent = data;
+
+        const option = document.createElement("option");
+        option.value = agent.name;
+        option.textContent = agent.name;
+        selectElement.appendChild(option);
+      });
+
+      if (storedAgentName) {
+        selectElement.value = storedAgentName;
+      }
+    });
+});
+
+
+
 
 // toggleInputs / open and close dev
 
@@ -92,45 +133,6 @@ function toggleInputs(id_Dev, id_checkbox, clas_inp1, clas_inp2) {
 
 var scriptURL = "https://script.google.com/macros/s/AKfycbyXx7BWYi6yj369orbCATzxNlrcpG73nu6X6cM9Vg3tBUaBWACL6Vr8hjINegKpHItusA/exec";
 
-let hiddenInput = document.querySelector('input[name="formId"]');
-hiddenInput.value = "form1";
-
-
-function toggleInputs2(id_Dev, id_checkbox, clas_inp1, clas_inp2) {
-  var inputContainer = document.getElementById(`${id_Dev}`);
-
-  var show_sec_for_all = document.querySelector(".show_sec_for_all");
-
-  var inp11 = document.getElementById(`${clas_inp1}`)
-  var inp22 = document.getElementById(`${clas_inp2}`)
-
-  if (document.getElementById(`${id_checkbox}`).checked) {
-    inputContainer.classList.add('show');
-    show_sec_for_all.classList.add('show2');
-
-
-    inp11.setAttribute("required", true);
-    inp22.setAttribute("required", true);
-
-    hiddenInput.value = "form2";
-
-    
-  } else {
-    inputContainer.classList.remove('show');
-    show_sec_for_all.classList.remove('show2');
-
-    hiddenInput.value = "form1";
-
-    inp11.value = ""
-    inp22.value = ""
-
-    inp11.removeAttribute("required");
-    inp22.removeAttribute("required");
-  }
-}
-
-
-
 
 
 let password_input = document.querySelector(".password_inp");
@@ -155,22 +157,9 @@ function dat_check() {
 
 
 
-
-
-
 form.addEventListener("submit", (e) => {
 
   e.preventDefault();
-
-
-    const priceInputs = document.querySelectorAll(".price");
-  let sum = 0;
-
-  // جمع القيم الموجودة في حقول price
-  priceInputs.forEach(input => {
-    sum += parseFloat(input.value) || 0;  // إضافة القيمة إذا كانت رقمية، وإلا نضيف 0
-  });
-
 
     
     if (password_agent && password_agent == password_input.value) {
@@ -197,9 +186,25 @@ form.addEventListener("submit", (e) => {
       })
       .catch((error) => console.error("Error!", error.message));
   } else {
-
-
-    errorMessage.innerHTML = "تأكد من الرقم السري";
+    errorMessage.innerHTML = "تأكد من الأسم الخاص بك او الرقم السري";
   }
+
 });
+
+
+
+
+function add_phone_number(Name_Ag) {
+  fetch("data.json")
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((agent) => {
+        if (Name_Ag == agent.name) {
+          password_agent = agent.passowrd;
+
+        }
+      });
+      
+    });
+}
 

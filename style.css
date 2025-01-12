@@ -10,6 +10,24 @@
 html{
     scroll-behavior: smooth;
 }
+
+::-webkit-scrollbar {
+  width: 12px; /* عرض شريط التمرير */
+}
+
+/* تغيير لون المسار الخلفي */
+::-webkit-scrollbar-track {
+  background: #42454D; /* لون المسار */
+}
+
+/* تغيير لون المقبض */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg , #2fc0ff , #1381f7 ,#0061C8 );
+  border-radius: 2px; /* لجعل الحواف مستديرة */
+  border: 1px solid #808080; /* لإضافة مساحة حول المقبض */
+}
+
+
 :root{
     --white: #fff;
     --main: #7632CC;
@@ -55,7 +73,9 @@ body {
     box-shadow: 5px 5px 10px #2f3137;
 }
 
-
+.mb-20{
+  margin-bottom: 25px;
+}
 
 img{
     width: 100%;

@@ -69,12 +69,10 @@
   font-display: block;
   src: url("../webfonts/fa-solid-900.ttf") format("truetype");
 }
-.t::before{
-  content: "";
-}
 
-.t::before{
-  content: "";
+
+.fa-user-tie::before{
+  content:"\f508";
 }
 
 
