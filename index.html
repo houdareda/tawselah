@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/car.png" type="image/x-icon" />
+
+    <title>توصيلة</title>
+
+    <!-- File CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- File Font-Awesome -->
+    <link rel="stylesheet" href="fontawesome/css/all.css" />
+  </head>
+  <body>
+    <div class="pc_div">
+      <div class="header">
+        <h1>توصيلة</h1>
+        <img src="img/car.png" alt="" />
+      </div>
+
+      <form
+        name="Marketing_Form"
+        action=""
+        id="quizForm"
+        class="form"
+        method="post"
+      >
+        <input type="hidden" name="formId" id="formId" />
+
+        <div class="div_inp">
+          <label for="car"
+            ><i class="fa-solid fa-car-side"></i> اختيار العربية
+          </label>
+
+          <select
+            id="car"
+            name="Car Name"
+            class="input name_car_inp name_car"
+            required
+          >
+            <option value="" disabled selected>اختيار العربية</option>
+            <option value="اكسبندر 24">اكسبندر 24</option>
+            <option value="اكسبندر 22">اكسبندر 22</option>
+            <option value="اكسبندر 21">اكسبندر 21</option>
+            <option value="Cn7 21">Cn7 21</option>
+            <option value="جراند 22">جراند 22</option>
+            <option value="Ad 19">Ad 19</option>
+            <option value="كارينز 16">كارينز 16</option>
+          </select>
+        </div>
+
+        <div class="div_inp date_div">
+          <label for="date"><i class="fa-solid fa-calendar-days"></i>التاريخ</label>
+
+          <input type="date" id="date" name="date" class="input" required />
+          <span id="error_msg_date" class="error">يجب اختيار تاريخ اليوم أو الثلاث ايام السابقين فقط!</span>
+        </div>
+
+
+
+        <div class="div_inp">
+          <label for="way"><i class="fa-solid fa-road"></i> خط سير الاورد</label>
+          <input
+            id="way"
+            class="input way"
+            type="text"
+            name="خط سير الاوردر"
+            placeholder="خط سير الاوردر"
+          />
+          
+        </div>
+
+
+        <div class="div_inp">
+          <label for="gasoline"><i class="fa-solid fa-gas-pump"></i> مصاريف البنزين</label>
+          <input
+            id="gasoline"
+            class="input gasoline"
+            type="number"
+            name="مصاريف البنزين"
+            placeholder="مصاريف البنزين"
+          />
+          
+        </div>
+
+
+
+        <div class="div_inp">
+          <label for="kartat"><i class="fa-solid fa-ticket"></i> مصاريف الكارتات</label>
+          <input
+            id="kartat"
+            class="input kartat"
+            type="number"
+            name="مصاريف الكارتات"
+            placeholder="مصاريف الكارتات"
+          />
+          
+        </div>
+
+
+
+
+        <div class="div_inp">
+          <label for="timeWaite"><i class="far fa-clock"></i>وقت الانتظار</label>
+          <input
+            id="timeWaite"
+            class="input timeWaite"
+            type="text"
+            name="وقت الانتظار"
+            placeholder="وقت الانتظار"
+          />
+          
+        </div>
+
+
+
+
+
+        <div class="div_inp">
+          <label for="cash"><i class="fa-solid fa-dollar-sign"></i>التحصيل</label>
+          <input
+            id="cash"
+            class="input cash"
+            type="number"
+            name="التحصيل"
+            placeholder="التحصيل"
+          />
+          
+        </div>
+
+
+        <div class="div_inp">
+          <label for="desk"><i class="fa-solid fa-house-chimney-user"></i>اسم المكتب</label>
+          <select
+            id="desk"
+            name="اسم المكتب"
+            class="input desk name_desk"
+            required
+          >
+            <option value="" disabled selected>اسم المكتب</option>
+         
+            <option value="بيتر روؤف">بيتر روؤف</option>
+            <option value="رافت">رافت</option>
+            <option value="وديع">وديع</option>
+            <option value="شادى">شادى</option>
+            <option value="ماريان">ماريان</option>
+            <option value="مايكل فايز">مايكل فايز</option>
+            <option value="مايكل فايز">غير ذلك ( يدوي )</option>
+          </select>
+          
+        </div>
+
+
+
+<!-- 
+        <div class="div_inp">
+          <label for="way"><i class="fa-solid fa-lock"></i>    </label>
+          <input
+            id="way"
+            class="input way"
+            type="number"
+            name=""
+            placeholder=""
+          />
+          
+        </div> -->
+
+
+        <div class="show_sec_for_all">
+
+          <!-- ------- Recipient Mony ------- -->
+
+          <div class="show_div">
+            <label>
+              <input
+                type="checkbox"
+                id="toggleCheckbox"
+                onclick="toggleInputs('inputContainer','toggleCheckbox' , 'Recipient' , 'RecipientMony')"
+              />
+              <i class="fa-solid fa-pen-to-square"></i>
+             عمل اوردر اخر
+            </label>
+          </div>
+
+          <div id="inputContainer" class="hidden inputContainer">
+      
+            
+            <div class="div_inp">
+              <label for="way"><i class="fa-solid fa-road"></i> خط سير الاورد</label>
+              <input
+                id="Recipient"
+                class="input way"
+                type="text"
+                name="خط سير الاوردر"
+                placeholder="خط سير الاوردر 1"
+              />
+              
+            </div>
+          
+                <div class="div_inp">
+                    <label for="cash"><i class="fa-solid fa-dollar-sign"></i>التحصيل</label>
+                    <input
+                      id="RecipientMony"
+                      class="input cash"
+                      type="number"
+                      name="التحصيل الاوردر 1"
+                      placeholder="التحصيل"
+                    />
+                    
+                  </div>
+
+
+            <!-- div 2222222222222222222222 -->
+
+            <div class="show_div">
+              <label>
+                <input
+                  type="checkbox"
+                  id="toggleCheckbox2"
+                  onclick="toggleInputs('inputContainer2','toggleCheckbox2','Recipient2','RecipientMony2')"
+                />
+                <i class="fa-solid fa-pen-to-square"></i> 2 عمل اوردر اخر
+              </label>
+            </div>
+          </div>
+
+          <div id="inputContainer2" class="hidden inputContainer">
+      
+            
+            <div class="div_inp">
+              <label for="way"><i class="fa-solid fa-road"></i> خط سير الاورد</label>
+              <input
+                id="Recipient2"
+                class="input way"
+                type="text"
+                name="خط سير الاوردر 2"
+                placeholder="خط سير الاوردر"
+              />
+              
+            </div>
+          
+                <div class="div_inp">
+                    <label for="cash"><i class="fa-solid fa-dollar-sign"></i>التحصيل</label>
+                    <input
+                      id="RecipientMony2"
+                      class="input cash"
+                      type="number"
+                      name="التحصيل اوردر 2"
+                      placeholder="التحصيل"
+                    />
+                    
+                  </div>
+
+
+            <!-- div 3333333333333333333333 -->
+
+            <div class="show_div">
+              <label>
+                <input
+                  type="checkbox"
+                  id="toggleCheckbox3"
+                  onclick="toggleInputs('inputContainer3','toggleCheckbox3','Recipient3','RecipientMony3')"
+                />
+                <i class="fa-solid fa-pen-to-square"></i> 3 عمل اوردر اخر
+              </label>
+            </div>
+          </div>
+
+          <div id="inputContainer3" class="hidden inputContainer">
+       
+            
+            <div class="div_inp">
+              <label for="way"><i class="fa-solid fa-road"></i> خط سير الاورد</label>
+              <input
+                id="Recipient3"
+                class="input way"
+                type="text"
+                name="خط سير الاوردر 3"
+                placeholder="خط سير الاوردر"
+              />
+              
+            </div>
+          
+                <div class="div_inp">
+                    <label for="cash"><i class="fa-solid fa-dollar-sign"></i>التحصيل</label>
+                    <input
+                      id="RecipientMony3"
+                      class="input cash"
+                      type="number"
+                      name="التحصيل الاوردر 3"
+                      placeholder="التحصيل"
+                    />
+                    
+                  </div>
+
+            <!-- div 444444444444444444444444 -->
+
+            <div class="show_div">
+              <label>
+                <input
+                  type="checkbox"
+                  id="toggleCheckbox4"
+                  onclick="toggleInputs('inputContainer4','toggleCheckbox4','Recipient4','RecipientMony4')"
+                />
+                <i class="fa-solid fa-pen-to-square"></i> 4 عمل اوردر اخر
+              </label>
+            </div>
+          </div>
+
+          <div id="inputContainer4" class="hidden inputContainer">
+          
+            
+            <div class="div_inp">
+              <label for="Recipient4"><i class="fa-solid fa-road"></i> خط سير الاورد</label>
+              <input
+                id="Recipient4"
+                class="input way"
+                type="text"
+                name="خط سير الاوردر 4"
+                placeholder="خط سير الاوردر"
+              />
+              
+            </div>
+          
+                <div class="div_inp">
+                    <label for="RecipientMony4"><i class="fa-solid fa-dollar-sign"></i>التحصيل</label>
+                    <input
+                      id="RecipientMony4"
+                      class="input cash"
+                      type="number"
+                      name="التحصيل الاوردر 4"
+                      placeholder="التحصيل"
+                    />
+                    
+                  </div>
+
+        </div>
+
+        <div class="div_inp">
+          <label for="Password"><i class="fa-solid fa-lock"></i> الرقم السري الخاص بك</label>
+          <input
+            id="Password"
+            class="input password_inp"
+            placeholder="ادخل الباسورد "
+          />
+        </div>
+
+        <div id="eror"></div>
+
+        <button type="submit" id="submitBtn" class="btn">اضـافة</button>
+      </form>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
